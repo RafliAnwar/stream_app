@@ -23,7 +23,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         $credentials['role'] = 'admin';
 
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->route('admin.movie');
@@ -33,5 +33,16 @@ class LoginController extends Controller
             'error' => 'Your credentials are wrong'
         ])->withInput();
         dd($credentials);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login');
     }
 }
