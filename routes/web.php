@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,10 @@ use App\Http\Controllers\Admin\TransactionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('admin/login',[LoginController::class, 'index'])->name('admin.login');
+Route::post('admin/login',[LoginController::class, 'authenticate'])->name('admin.login.auth');
+
 Route::group(['prefix' => 'admin'], function(){
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
 
