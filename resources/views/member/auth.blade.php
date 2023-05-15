@@ -51,7 +51,7 @@
                     <!-- Form login -->
                     <section class="w-11/12 max-w-[460px]">
                         <form action="{{ route('member.login.auth') }}" method="POST" class="mt-[70px] flex flex-col bg-white p-[30px] rounded-2xl gap-6">
-                          @csrf
+                        @csrf
                             <div class="form-input flex flex-col gap-3">
                                 <label for="email" class="text-base font-medium text-stream-dark">Email Address</label>
                                 <input type="email"
@@ -60,7 +60,7 @@
                                     class="rounded-full py-3 pr-3 pl-6 text-stream-dark placeholder:text-stream-gray placeholder:font-normal font-medium outline outline-stream-gray outline-1 text-base focus:outline-indigo-600 input-stream"
                                     placeholder="Your email address" />
                                 @error('email')
-                                  <div style="color: red">{{ $message }}</div>
+                                <div style="color: red">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-input flex flex-col gap-3">
@@ -71,7 +71,7 @@
                                     class="rounded-full py-3 pr-3 pl-6 text-stream-dark placeholder:text-stream-gray placeholder:font-normal font-medium outline-stream-gray outline outline-1 text-base focus:outline-indigo-600 input-stream"
                                     placeholder="Your password" />
                                 @error('password')
-                                  <div style="color: red">{{ $message }}</div>
+                                <div style="color: red">{{ $message }}</div>
                                 @enderror
                             </div>
                             @error('credentials')
